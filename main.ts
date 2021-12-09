@@ -16,6 +16,14 @@ function 燈數 (num: number) {
 // 增加亮燈的數量
 input.onButtonPressed(Button.A, function () {
     _2 += 1
+    basic.showNumber(_2)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
 })
 // 清空
 input.onButtonPressed(Button.AB, function () {
