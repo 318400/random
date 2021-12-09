@@ -1,3 +1,8 @@
+/**
+ * a=>增加
+ * 
+ * b=>執行
+ */
 function 燈數 (num: number) {
     if (num % 5 == 0) {
         x = 4
