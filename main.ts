@@ -15,8 +15,8 @@ function 燈數 (num: number) {
 }
 // 增加亮燈的數量
 input.onButtonPressed(Button.A, function () {
-    _2 += 1
-    basic.showNumber(_2)
+    show += 1
+    basic.showNumber(show)
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -27,7 +27,7 @@ input.onButtonPressed(Button.A, function () {
 })
 // 清空
 input.onButtonPressed(Button.AB, function () {
-    _2 = 0
+    show = 0
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -44,7 +44,7 @@ input.onButtonPressed(Button.B, function () {
         list.push(0)
     }
     n = 0
-    while (n < _2) {
+    while (n < show) {
         a = randint(0, 24)
         if (list[a] == 0) {
             list[a] = 1
@@ -58,7 +58,7 @@ let a = 0
 let list: number[] = []
 let y = 0
 let x = 0
+let show = 0
 let n = 0
-let _2 = 0
 n = 0
-_2 = 0
+show = 0
