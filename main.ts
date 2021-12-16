@@ -2,7 +2,21 @@
  * a=>增加
  * 
  * b=>執行
+ * 
+ * a+b=>歸零
+ * 
+ * P0=>數字累計
  */
+input.onPinPressed(TouchPin.P0, function () {
+    basic.showNumber(show)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+})
 function 燈數 (num: number) {
     if (num % 5 == 0) {
         x = 4
@@ -16,14 +30,6 @@ function 燈數 (num: number) {
 // 增加亮燈的數量
 input.onButtonPressed(Button.A, function () {
     show += 1
-    basic.showNumber(show)
-    basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
 })
 // 清空
 input.onButtonPressed(Button.AB, function () {
@@ -39,17 +45,21 @@ input.onButtonPressed(Button.AB, function () {
 // 使燈亮，並隨機
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
-    list = []
-    for (let index = 0; index < 25; index++) {
-        list.push(0)
-    }
-    n = 0
-    while (n < show) {
-        a = randint(0, 24)
-        if (list[a] == 0) {
-            list[a] = 1
-            n += 1
-            燈數(a + 1)
+    if (show < 25) {
+        show = 0
+    } else {
+        list = []
+        for (let index = 0; index < 25; index++) {
+            list.push(0)
+        }
+        n = 0
+        while (n < show) {
+            a = randint(0, 24)
+            if (list[a] == 0) {
+                list[a] = 1
+                n += 1
+                燈數(a + 1)
+            }
         }
     }
 })
